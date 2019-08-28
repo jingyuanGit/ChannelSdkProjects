@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/csdk_login_llyt_content"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@drawable/csdk_login_title_bg">
+
+                <RelativeLayout
+                    android:id="@+id/csdk_login_rtyt_back"
+                    android:layout_width="25dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/csdk_login_btn_back"
+                        android:layout_width="12dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+
+                        android:background="@drawable/csdk_btn_back_selector" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/csdk_login_tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_horizontal"
+                    android:text="@string/csdk_index_title"
+                    android:textColor="@color/csdk_normal_text_color"
+                    android:textSize="22sp" />
+
+                <Button
+                    android:id="@+id/csdk_login_close_btn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/csdk_btn_close" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+
+                android:id="@+id/csdk_login_llyt_index"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/csdk_login_content_bg"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:id="@+id/csdk_login_btn_guest_login"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/csdk_btn_lonekeylogin_selector"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/csdk_guest_login"
+                        android:textColor="@color/csdk_btn_login_outline_color"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/csdk_login_btn_account_login"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/csdk_btn_login_selector"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/csdk_account_login"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/csdk_login_llyt_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/csdk_login_content_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/csdk_login_rtyt_account_input"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/csdk_login_et_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/csdk_login_et_bg"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*#@.-_0123456789"
+                        android:hint="@string/csdk_account_input_hint"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="30dp"
+                        android:textColor="@color/csdk_input_text_color"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/csdk_login_rtyt_account_list"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/csdk_btn_arrow"></RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/white">
+
+
+                    <EditText
+                        android:id="@+id/csdk_login_et_passwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/csdk_login_et_bg"
+                        android:hint="@string/csdk_password_input_hint"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="30dp"
+                        android:textColor="@color/csdk_input_text_color"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/csdk_login_rtyt_passwd_hint_show"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/csdk_login_iv_eye"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/csdk_btn_eye_close"
+                            android:scaleType="fitCenter" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/csdk_login_llyt_tologin"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/csdk_btn_tologin_selector"
+                    android:gravity="center">
+
+
+                    <ProgressBar
+                        android:id="@+id/csdk_login_pb_tologin"
+                        style="@android:style/Widget.Holo.Light.ProgressBar"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/csdk_login_tv_tologin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/csdk_login_text"
+                        android:textColor="@color/csdk_btn_login_inner_color"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/csdk_login_llyt_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/csdk_login_btn_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/csdk_text_selector"
+                        android:text="@string/csdk_register_account"
+                        android:textColor="@color/csdk_btn_login_outline_color"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/csdk_login_llyt_user_rule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/csdk_login_iv_agree_user_rule"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/csdk_checkbox_checked" />
+
+                    <TextView
+                        android:id="@+id/csdk_login_tv_user_rule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/csdk_agree_register_rule"
+                        android:textColor="@color/csdk_user_rule_text_color"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+

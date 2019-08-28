@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="28dp">
+
+    <View
+        android:visibility="invisible"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:id="@+id/account_item_tv"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:paddingLeft="36dp"
+        android:text="chenjingyuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

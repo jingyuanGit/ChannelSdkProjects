@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--String中文-->
+    <string name="csdk_index_title">登录</string>
+    <string name="csdk_guest_login">一键登录</string>
+    <string name="csdk_account_login">账号登录</string>
+    <string name="csdk_account_register">账号注册</string>
+    <string name="csdk_account_input_hint">请输入账号</string>
+    <string name="csdk_password_input_hint">请输入密码</string>
+    <string name="csdk_agree_register_rule">我已阅读并同意《通行证注册协议》</string>
+    <string name="csdk_register_rule_span_text">通行证注册协议</string>
+    <string name="csdk_login_text">登录</string>
+    <string name="csdk_pay_text">充值</string>
+    <string name="csdk_login_loading_text">登录中...</string>
+    <string name="csdk_register_text">注册</string>
+    <string name="csdk_register_loading_text">注册中...</string>
+    <string name="csdk_register_and_login_text">注册并登陆</string>
+    <string name="csdk_register_and_login_loading_text">注册并登陆中...</string>
+    <string name="csdk_online_server">在线客服></string>
+    <string name="csdk_register_account">注册账号</string>
+    <string name="csdk_no_network_tips">无法连接到网络，请检查网络配置</string>
+    <string name="csdk_login_success_tips">登录成功</string>
+    <string name="csdk_login_failed_tips">登录失败</string>
+    <string name="csdk_register_success_tips">注册成功</string>
+    <string name="csdk_register_failed_tips">注册失败</string>
+    <string name="csdk_guest_login_loading_tips">游客登录中...</string>
+    <string name="csdk_account_not_empty_tips">账号不能为空</string>
+    <string name="csdk_password_not_empty_tips">密码不能为空</string>
+    <string name="csdk_account_limit_tips">账号为6至24位数（可用英文与数字）注册后无法更改</string>
+    <string name="csdk_password_limit_tips">密码长度为6-18位，请重新设置</string>
+
+
+    <!--颜色-->
+    <color name="csdk_normal_text_color">#4e4e4e</color>
+    <color name="csdk_title_bar_bg">#dfdfdf</color>
+    <color name="csdk_user_rule_text_color">#bfbfbfbf</color>
+    <color name="csdk_user_rule_text_span_color">#4e4e4e</color>
+    <color name="csdk_input_text_color">#4e4e4e</color>
+    <color name="csdk_btn_login_outline_color">#30C07B</color>
+    <color name="csdk_btn_login_inner_color">#289c65</color>
+    <color name="csdk_btn_login_passed_color">#cac8c6</color>
+
+    <!--主题样式-->
+    <!-- 自定义loading dialog -->
+    <style name="csdk_game_style_loading" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="csdk_game_style_loading_t" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>
