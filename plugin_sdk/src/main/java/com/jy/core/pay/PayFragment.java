@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +13,9 @@ import android.view.ViewParent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.cwsdk.plugin.event.EventPublisher;
-import com.cwsdk.sdkplugin.GlobalVariable;
-import com.cwsdk.sdkplugin.R;
-import com.cwsdk.sdkplugin.bean.GameOrderInfo;
-import com.cwsdk.sdkplugin.bean.GameRoleInfo;
-import com.cwsdk.sdkplugin.bean.GameUserInfo;
-import com.cwsdk.sdkplugin.bean.OrderResponse;
-import com.cwsdk.sdkplugin.bean.PayBean;
-import com.cwsdk.sdkplugin.callback.RequestCommonCallBack;
-import com.cwsdk.sdkplugin.utils.CwSdkLog;
-import com.cwsdk.sdkplugin.utils.RequestUtils;
 import com.jy.core.R;
-
-/**
- * Created by yuan on 2017/6/23.
- */
 
 public class PayFragment extends Fragment implements View.OnClickListener {
 
@@ -37,36 +23,28 @@ public class PayFragment extends Fragment implements View.OnClickListener {
 
     private WebView mWebView;
 
-    private static final String ARG_ORDER_INFO = "GameOrderInfo";
+    public static final String ARG_PRODUCE_NAME = "produceName";
 
-    private static final String ARG_ROLE_INFO = "GameRoleInfo";
+    public static final String ARG_AMOUNT = "amount";
 
-    private static final String ARG_USER_INFO = "GameUserInfo";
+    private String produceName;
+    private int amount;
 
-    public static PayFragment newInstance(GameOrderInfo orderInfo, GameRoleInfo roleInfo, GameUserInfo userInfo) {
+    public static PayFragment newInstance(String produceName, int amount) {
         PayFragment contentFragment = new PayFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ARG_ORDER_INFO, orderInfo);
-        args.putSerializable(ARG_ROLE_INFO, roleInfo);
-        args.putSerializable(ARG_USER_INFO, userInfo);
+        args.putSerializable(ARG_PRODUCE_NAME, produceName);
+        args.putSerializable(ARG_AMOUNT, amount);
         contentFragment.setArguments(args);
         return contentFragment;
-    }
-
-    public static PayFragment newInstance(String orderInfo, String roleInfo, String userInfo) {
-        GameOrderInfo gameOrderInfo = RequestUtils.gson.fromJson(orderInfo, GameOrderInfo.class);
-        GameRoleInfo gameRoleInfo = RequestUtils.gson.fromJson(roleInfo, GameRoleInfo.class);
-        GameUserInfo gameUserInfo = RequestUtils.gson.fromJson(userInfo, GameUserInfo.class);
-        return newInstance(gameOrderInfo, gameRoleInfo, gameUserInfo);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mOrderInfo = (GameOrderInfo) getArguments().getSerializable(ARG_ORDER_INFO);
-            mRoleInfo = (GameRoleInfo) getArguments().getSerializable(ARG_ROLE_INFO);
-            mUserInfo = (GameUserInfo) getArguments().getSerializable(ARG_USER_INFO);
+            produceName = (String) getArguments().getSerializable(ARG_PRODUCE_NAME);
+            amount = (int) getArguments().getSerializable(ARG_AMOUNT);
         }
     }
 
@@ -88,19 +66,11 @@ public class PayFragment extends Fragment implements View.OnClickListener {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.csdk_dialog_loading, null);
         loadingDialog.setContentView(view);
         loadingDialog.setCanceledOnTouchOutside(false);
-
-        String payInfo = mOrderInfo.getGoodsName() + "x" + mOrderInfo.getCount();
-
-        mPayBean = new PayBean(mUserInfo.getUID(), mRoleInfo.getServerID(), String.valueOf(mOrderInfo.getAmount()), payInfo, mOrderInfo.getCpDate());
-
         TextView goodName = mRootView.findViewById(R.id.cw_text_good_name);
-
-        goodName.setText(payInfo);
+        goodName.setText(produceName);
         TextView priceText = mRootView.findViewById(R.id.cw_text_good_price);
-
-        double i = ((mOrderInfo.getAmount() + 0.0) / 100);
-
-        priceText.setText("￥" + String.valueOf(i));
+        double i = ((amount + 0.0) / 100);
+        priceText.setText("￥" + i);
     }
 
     private void initWebView() {
@@ -163,53 +133,17 @@ public class PayFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
     void toWxPay() {
-//        CwSdkLog.d("toWxPay");
-//        String url = GlobalVariable.sdkPluginParams.getBaseUrl() + "/pay/shenfutongOrder";
-//        mPayBean.setPayID(String.valueOf(21));
-        if (loadingDialog != null && !loadingDialog.isShowing())
-            loadingDialog.show();
-
-//        RequestUtils.postFormData(url, mPayBean, OrderResponse.class, new RequestCommonCallBack<OrderResponse>() {
-//            @Override
-//            public void successCallBack(OrderResponse orderResponse) {
-//                if ("success".equalsIgnoreCase(orderResponse.getResult())) {
-//                    openUri(orderResponse.getPayUrl());
-//                }
-//            }
-//
-//            @Override
-//            public void failedCallBack(String message) {
-//
-//            }
-//        });
+        Toast.makeText(getActivity(),"微信支付",Toast.LENGTH_LONG).show();
     }
 
     void toAliPay() {
-//        String url = GlobalVariable.sdkPluginParams.getBaseUrl() + "/pay/shenfutongOrder";
-//        mPayBean.setPayID(String.valueOf(22));
-        if (loadingDialog != null && !loadingDialog.isShowing())
-            loadingDialog.show();
-//        RequestUtils.postFormData(url, mPayBean, OrderResponse.class, new RequestCommonCallBack<OrderResponse>() {
-//            @Override
-//            public void successCallBack(OrderResponse orderResponse) {
-//                if ("success".equalsIgnoreCase(orderResponse.getResult())) {
-//                    mWebView.loadUrl(orderResponse.getPayUrl());
-//                }
-//            }
-//
-//            @Override
-//            public void failedCallBack(String message) {
-//
-//            }
-//        });
+        Toast.makeText(getActivity(),"支付宝支付",Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onDestroy() {
         if (mWebView != null) {
-//            CwSdkLog.d("webview 移除");
             ViewParent parent = mWebView.getParent();
             if (parent != null) {
                 ((ViewGroup) parent).removeView(mWebView);

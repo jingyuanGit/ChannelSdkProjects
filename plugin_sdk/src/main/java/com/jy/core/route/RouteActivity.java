@@ -5,12 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
 import android.view.KeyEvent;
 
 import com.csdk.plugin.activity.PluginFragmentActivity;
 import com.jy.core.R;
 import com.jy.core.login.LoginFragment;
+import com.jy.core.pay.PayFragment;
 import com.jy.core.utils.ActivityUtils;
 
 import java.lang.ref.WeakReference;
@@ -41,20 +42,18 @@ public class RouteActivity extends PluginFragmentActivity {
                 ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mFragment, R.id.csk_proxy_activity_flyt_content);
                 break;
             case BUSINESS_PAY:
-                String orderInfoJson = intent.getStringExtra("orderInfoJson");
-                String roleInfoJson = intent.getStringExtra("roleInfoJson");
-                String userInfoJson = intent.getStringExtra("userInfoJson");
-                mFragment = PayFragment.newInstance(orderInfoJson, roleInfoJson, userInfoJson);
+                String produceName = intent.getStringExtra(PayFragment.ARG_PRODUCE_NAME);
+                int amount = intent.getIntExtra(PayFragment.ARG_AMOUNT, 1);
+                mFragment = PayFragment.newInstance(produceName, amount);
                 ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mFragment, R.id.csk_proxy_activity_flyt_content);
                 break;
         }
     }
 
-
     @Override
     public void onBackPressed() {
         if (current_business == BUSINESS_LOGIN) {
-//            CwSdkLog.d("RouteActivity onBackPressed");
+
         } else {
             super.onBackPressed();
         }
@@ -63,7 +62,6 @@ public class RouteActivity extends PluginFragmentActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            CwSdkLog.d("RouteActivity onKeyDownBack");
             return current_business == BUSINESS_LOGIN ? true : super.onKeyDown(keyCode, event);
         }
         return super.onKeyDown(keyCode, event);
@@ -72,14 +70,11 @@ public class RouteActivity extends PluginFragmentActivity {
     @Override
     public void onStart() {
         super.onStart();
-//        CwSdkLog.d("RouteActivity onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-//        CwSdkLog.d("RouteActivity onResume");
-
     }
 
     @Override

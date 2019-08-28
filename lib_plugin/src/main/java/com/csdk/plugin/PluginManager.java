@@ -12,7 +12,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.util.ArrayMap;
+import androidx.core.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
 

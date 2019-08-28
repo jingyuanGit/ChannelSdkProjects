@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
+import androidx.core.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -53,7 +53,7 @@ public class PluginFragmentActivity extends FragmentActivity implements IPluginA
     }
 
     @Override
-    public android.support.v4.app.FragmentManager getSupportFragmentManager() {
+    public androidx.core.app.FragmentManager getSupportFragmentManager() {
         return that.getSupportFragmentManager();
     }
 
